@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+img {
+  max-width: 80px;
+  max-height: 70px;
+}
+
+.centralizado {
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px rgb(27, 27, 27);
+  padding: 0 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ÍCONE ANIMADO */
+svg {
+  height: 80px;
+  position: absolute;
+  width: 80px;
+  top: 0;
+  right: 0;
+}
+
+.plates {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 160px;
+  width: 640px;
+}
+
+@media (max-width: 640px) {
+  .plates {
+    width: 320px;
+  }
+}
+
+.plate {
+  height: 80px;
+  width: 80px;
+}
+
+.burger {
+  filter: url(#gooeyness);
+  cursor: pointer;
+}
+
+.x {
+  transform: scale(0);
+  transition: transform 400ms;
+  cursor: pointer;
+}
+
+.line {
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 50%;
+  transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+}
+
+.x .line {
+  stroke-width: 5.5px;
+}
+
+/*ANIMAÇÃO DAS LINHAS */
+.plate1 .line2 {
+  stroke-dasharray: 40 200;
+  stroke-dashoffset: 0px;
+}
+
+.plate1 .line3 {
+  stroke-dasharray: 40 179;
+  stroke-dashoffset: 0px;
+}
+
+.active .line {
+  transition: stroke-dasharray 500ms, stroke-dashoffset 500ms, transform 500ms;
+}
+
+.active.plate1 .line1 {
+  transform: scale(0, 1);
+  transition: transform 500ms 100ms;
+}
+
+.active.plate1 .line2 {
+  stroke-dasharray: 5px 200;
+  stroke-dashoffset: -164px;
+}
+
+.active.plate1 .line3 {
+  stroke-dasharray: 5px 179;
+  stroke-dashoffset: -142px;
+}
+
+.active .x {
+  transform: scale(1);
+  transition: transform 400ms 350ms;
+}
+
+.menu-movel {
+  display: none;
+}
+
+/* --------------------------------------- */
+a {
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: black;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: orangered;
+}
+
+@media screen and (max-width: 768px) {
+
+  .menu {
+    display: none;
+  }
+
+  .menu-movel {
+    display: block;
+  }
+}
